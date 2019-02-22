@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import './App.css';
-import User from './components/User';
+import Customer from './components/Customer';
 import Admin from './components/Admin';
 import Home from './components/Home';
+import './App.css';
 
 class App extends Component {
-  
+
   render() {
     let routes = (
       <Switch>
-        <Route path="/user" component={User} />
+        <Route path="/customer" component={Customer} />
         <Route path="/admin" component={Admin} />
         <Route path="/" exact component={Home} />
         <Redirect to="/" />
@@ -18,9 +18,9 @@ class App extends Component {
 
     )
     return (
-      <React.Fragment>
+      <div className="full-container">
         {routes}
-      </React.Fragment>
+      </div>
     );
   }
 }
