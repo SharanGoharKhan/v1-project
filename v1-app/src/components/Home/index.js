@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css'
+import  './styles.css'
 class Home extends React.Component {
 
     constructor(props) {
@@ -17,7 +17,7 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className='container'>
                 <h3>Are you Admin or Customer</h3>
                 <div>
                     <button type="button" onClick={this.handleAdmin} className="btn btn-primary wdth200">Admin</button>
