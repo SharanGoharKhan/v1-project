@@ -1,8 +1,12 @@
-import React from 'react'
-import './styles.css'
+import React from "react"
+import "./styles.css"
+
+import {Items} from "./items"
+
 
 class Customer extends React.Component {
     render() {
+        const items=Items()
         return (
             <div className='container--customer'>
                 <div className='content'>
@@ -10,23 +14,7 @@ class Customer extends React.Component {
                         <h1>Customer Interface</h1>
                     </header>
                     <main>
-                        <div className="item-container">
-                            <div className="text-container">
-                                <h4>Title</h4>
-                                <p>Description</p>
-                                <h3>Price</h3>
-                            </div>
-                        </div>
-                        <div className="item-container">
-                            <div className="text-container">
-                                <div className="price-container">
-                                
-                                </div>
-                                <h4>Title</h4>
-                                <p>Description</p>
-                                <h3>Price</h3>
-                            </div>
-                        </div>
+                        {items}
                     </main>
                 </div>
             </div>
