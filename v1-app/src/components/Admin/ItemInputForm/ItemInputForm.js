@@ -1,18 +1,8 @@
 import React from 'react'
-import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
+import {ADD_ITEM} from "../../../apollo/resolver"
 
 
-const ADD_ITEM = gql`
-  mutation AddItem($itemInput: ItemInput!) {
-    createItem(itemInput: $itemInput) {
-      _id
-      title
-      description
-      price
-    }
-  }
-`;
 
 class ItemInputForm extends React.Component {
 
@@ -55,7 +45,7 @@ class ItemInputForm extends React.Component {
                                     }
                                 })
                                     .then(data => {
-                                        this.props.handleAdd(data.data.createItem)
+                                       
                                         this.titleRef.current.value = "";
                                         this.descRef.current.value = "";
                                         this.priceRef.current.value = "";

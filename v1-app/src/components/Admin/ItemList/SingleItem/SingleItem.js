@@ -1,17 +1,8 @@
 import React from 'react'
 import { Mutation } from "react-apollo";
-import gql from "graphql-tag";
 
-const EDIT_ITEM = gql`
-mutation EditItem($itemInput: ItemInput!) {
-    editItem(itemInput: $itemInput) {
-      _id
-      title
-      description
-      price
-    }
-  }
-`;
+import {EDIT_ITEM} from "../../../../apollo/resolver"
+
 
 class SingleItem extends React.Component {
 
@@ -56,13 +47,12 @@ class SingleItem extends React.Component {
     render() {
         return (
             <Mutation mutation={EDIT_ITEM} key={this.state.id}>
-                {editItem => (
+                {(editItem, { loading, error }) => (
                     <div className="card" >
                         <div className="card-body">
                             <form onSubmit={e => {
                                 e.preventDefault();
                                 let item = this.validate()
-                                console.log(item)
                                 if (item)
                                     editItem({ variables: { itemInput: item } })
                                         .then(data => {
@@ -95,6 +85,8 @@ class SingleItem extends React.Component {
                                 </div>
                                 <button className="btn btn-primary">Update</button>
                             </form>
+                            {loading && <p>Loading...</p>}
+                            {error && <p>Error :( Please try again</p>}
                         </div>
                     </div>
                 )}

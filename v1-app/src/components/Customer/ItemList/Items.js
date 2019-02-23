@@ -1,19 +1,10 @@
 import React from "react"
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
+import {LIST_ITEMS} from "../../../apollo/resolver"
 
 export const Items = () => (
     <Query
-        query={gql`
-      {
-        items {
-          _id
-          title
-          description
-          price
-        }
-      }
-    `}
+        query={LIST_ITEMS}
     >
         {({ loading, error, data }) => {
             if (loading) return <p>Loading...</p>;
