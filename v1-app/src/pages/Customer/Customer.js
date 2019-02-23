@@ -1,5 +1,5 @@
 import React from "react"
-import { Items } from "./Items"
+import { Items } from "../../components/Customer/ItemList/Items"
 import './Customer.css'
 import Header from '../../UI/Header/Header'
 
