@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../../UI/Header/Header'
 import ItemInputForm from '../../components/Admin/ItemInputForm/ItemInputForm'
+import ItemList from '../../components/Admin/ItemList/ItemList'
 
 class Admin extends React.Component {
 
@@ -31,6 +32,9 @@ class Admin extends React.Component {
                     <Header title='Admin Interface' />
                     <main>
                         <ItemInputForm handleAdd={this.handleAdd} />
+                        <ItemList 
+                        items={this.state.items}
+                        />
                     </main>
                 </div>
             </div>
