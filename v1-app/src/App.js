@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Customer from './components/Customer';
-import Admin from './components/Admin';
-import Home from './components/Home';
+import Customer from './pages/Customer/Customer';
+import Admin from './pages/Admin/Admin';
+import Home from './pages/Home/Home';
 import './App.css';
 
 class App extends Component {
