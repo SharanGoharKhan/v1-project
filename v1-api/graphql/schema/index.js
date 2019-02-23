@@ -1,4 +1,12 @@
 const { buildSchema } = require('graphql');
+// allows us to define the schema and setup the schema that follows
+// the official graphql specification
+
+//define Types, input(parameters), query and mutations
+// RootQuery for all query 
+// Root Mutation for mutations
+// then Pass it to the query and mutation in Schema fields
+
 
 module.exports = buildSchema(`
 

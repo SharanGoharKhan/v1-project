@@ -3,6 +3,7 @@ const Item = require('../../models/item');
 const { transformItem } = require('./merge');
 
 module.exports = {
+  //get single item by providing itemId
   item: async (args, req) => {
     try {
       const item = await Item.findById(args.itemId);
@@ -12,6 +13,7 @@ module.exports = {
       throw err;
     }
   },
+  //get all items list
   items: async () => {
     try {
       const items = await Item.find();
@@ -22,6 +24,7 @@ module.exports = {
       throw err;
     }
   },
+  //create and item passed in as itemInput and return created item
   createItem: async (args, req) => {
     const item = new Item({
       title: args.itemInput.title,
@@ -37,6 +40,7 @@ module.exports = {
       throw err;
     }
   },
+  //edit item by providing _id and change other details and return updated item
   editItem: async (args, req) => {
     const fetchedItem = await Item.findOne({ _id: args.itemInput._id });
     fetchedItem.title = args.itemInput.title;
@@ -45,6 +49,7 @@ module.exports = {
     const result = await fetchedItem.save();
     return transformItem(result);
   },
+  //delete item by providing itemId and return deleted item
   deleteItem: async (args, req) => {
     try {
       const item = await Item.findById(args.itemId);
