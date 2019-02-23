@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 //when frontend and backend are on different url
 //allowed methods, Options request is sent by browser before POST
-// allowed content type e.g application/json
+//allowed content type e.g application/json
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS'); 
@@ -36,14 +36,14 @@ app.use(
     graphiql: true
   })
 );
-
+//connection to mongodb 
 mongoose
   .connect(
     `mongodb://${process.env.MONGO_USER}:${
       process.env.MONGO_PASSWORD}@ds347665.mlab.com:47665/${process.env.MONGO_DB}`
   )
   .then(() => {
-    app.listen(8000);
+    app.listen(8000); //start server if db connected
   })
   .catch(err => {
     console.log(err);
