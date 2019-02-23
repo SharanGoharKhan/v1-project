@@ -1,6 +1,5 @@
 import React from "react"
 import { ItemList } from "../../components/Customer/ItemList/ItemList"
-import './Customer.css'
 import Header from '../../UI/Header/Header'
 
 class Customer extends React.Component {
