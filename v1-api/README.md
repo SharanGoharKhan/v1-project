@@ -1,2 +1,3 @@
-### v1-api
-This is api for v1
+### Running project locally 
+npm install in this directory
+npm start in this directory
