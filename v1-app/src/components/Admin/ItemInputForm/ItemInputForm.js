@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mutation } from "react-apollo";
 import { ADD_ITEM,LIST_ITEMS } from "../../../apollo/resolver"
-
+import { validateInput } from '../../../utilities/validateInput'
 
 
 class ItemInputForm extends React.Component {
@@ -14,23 +14,17 @@ class ItemInputForm extends React.Component {
 
     }
 
+    // This function checks if the input is valid
     validate() {
         const title = this.titleRef.current.value
         const description = this.descRef.current.value
         const price = +this.priceRef.current.value
-
-        if (
-            title.trim().length === 0 ||
-            price <= 0 ||
-            description.trim().length === 0
-        ) {
-            return false
-        }
-        return { title, description, price };
-
+        return validateInput(title,description,price)
     }
     render() {
         return (
+            // Mutation is called for adding item adds 
+            // the item in the current list of items 
             <Mutation
                 mutation={ADD_ITEM}
                 update={(cache, { data: { createItem } }) => {
@@ -52,7 +46,8 @@ class ItemInputForm extends React.Component {
                                     }
                                 })
                                     .then(data => {
-
+                                        //if the data is recieved set the 
+                                        //input elements values to empty
                                         this.titleRef.current.value = "";
                                         this.descRef.current.value = "";
                                         this.priceRef.current.value = "";

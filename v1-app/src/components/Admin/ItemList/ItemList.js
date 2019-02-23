@@ -1,10 +1,10 @@
 import React from "react"
 import { Query } from "react-apollo";
 import SingleItem from "./SingleItem/SingleItem";
-
 import {LIST_ITEMS} from "../../../apollo/resolver"
 
 export const ItemList = () => (
+    // Queries all the list items currently available
     <Query
         query={LIST_ITEMS}
     >

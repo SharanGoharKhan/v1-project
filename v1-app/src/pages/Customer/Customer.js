@@ -4,6 +4,7 @@ import Header from '../../UI/Header/Header'
 
 class Customer extends React.Component {
     render() {
+        // Rendered list of items
         const items = ItemList()
         return (
             <div className='container--customer'>

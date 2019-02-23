@@ -8,8 +8,10 @@ class Admin extends React.Component {
         return (
             <div className='container--customer'>
                 <div className='content'>
+                    {/* Renders header */}
                     <Header title='Admin Interface' />
                     <main>
+                        {/* Renders input form and list of available items */}
                         <ItemInputForm  />
                         <ItemList
                         />

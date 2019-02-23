@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mutation } from "react-apollo";
-
 import {EDIT_ITEM} from "../../../../apollo/resolver"
+import { validateInput } from '../../../../utilities/validateInput'
 
 
 class SingleItem extends React.Component {
@@ -27,21 +27,13 @@ class SingleItem extends React.Component {
             obj
         )
     }
+    // This function validates all the fields
     validate() {
         const _id = this.state.id
         const title = this.state.title
         const description = this.state.description
         const price = +this.state.price
-
-        if (
-            title.trim().length === 0 ||
-            price <= 0 ||
-            description.trim().length === 0
-        ) {
-            return false
-        }
-        return { _id, title, description, price };
-
+        return { _id, ...validateInput(title,description,price) };
     }
 
     render() {

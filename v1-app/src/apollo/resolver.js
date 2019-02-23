@@ -1,5 +1,6 @@
 import gql from "graphql-tag";
 
+// This mutation edits items recieves updated Item
 export const EDIT_ITEM = gql`
 mutation EditItem($itemInput: ItemInput!) {
     editItem(itemInput: $itemInput) {
@@ -11,6 +12,7 @@ mutation EditItem($itemInput: ItemInput!) {
   }
 `;
 
+// This mutation adds item recieves item to be added
 export const ADD_ITEM = gql`
   mutation AddItem($itemInput: ItemInput!) {
     createItem(itemInput: $itemInput) {
@@ -22,6 +24,7 @@ export const ADD_ITEM = gql`
   }
 `;
 
+// This query list all the items doesn't recieve any parameters
 export const LIST_ITEMS = gql`
 {
   items {
