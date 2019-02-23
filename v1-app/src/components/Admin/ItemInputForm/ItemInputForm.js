@@ -1,6 +1,6 @@
 import React from 'react'
 import { Mutation } from "react-apollo";
-import {ADD_ITEM} from "../../../apollo/resolver"
+import { ADD_ITEM,LIST_ITEMS } from "../../../apollo/resolver"
 
 
 
@@ -32,7 +32,14 @@ class ItemInputForm extends React.Component {
     render() {
         return (
             <Mutation
-                mutation={ADD_ITEM}>
+                mutation={ADD_ITEM}
+                update={(cache, { data: { createItem } }) => {
+                    const { items } = cache.readQuery({ query: LIST_ITEMS });
+                    cache.writeQuery({
+                        query: LIST_ITEMS,
+                        data: { items: items.concat([createItem]) },
+                    });
+                }}>
                 {(createItem, { data }) => (
                     <div>
                         <form onSubmit={e => {
@@ -45,7 +52,7 @@ class ItemInputForm extends React.Component {
                                     }
                                 })
                                     .then(data => {
-                                       
+
                                         this.titleRef.current.value = "";
                                         this.descRef.current.value = "";
                                         this.priceRef.current.value = "";
