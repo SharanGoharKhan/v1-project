@@ -1,8 +1,8 @@
 import React from "react"
 import { Query } from "react-apollo";
-import {LIST_ITEMS} from "../../../apollo/resolver"
+import { LIST_ITEMS } from "../../../apollo/resolver"
 
-export const Items = () => (
+export const ItemList = () => (
     <Query
         query={LIST_ITEMS}
     >
@@ -11,11 +11,11 @@ export const Items = () => (
             if (error) return <p>Error :(</p>;
 
             return data.items.map(({ _id, title, description, price }) => (
-                <div key={_id} className="item-container">
-                    <div className="text-container">
-                        <h4>{title}</h4>
-                        <p>{description}</p>
-                        <h3>{price}</h3>
+                <div key={_id} className="card marginTopBot">
+                    <div className="card-body">
+                        <h5 className="card-title">{title}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">{price}</h6>
+                        <p className="card-text">{description}</p>
                     </div>
                 </div>
             ));

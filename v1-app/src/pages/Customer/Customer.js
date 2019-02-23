@@ -1,11 +1,11 @@
 import React from "react"
-import { Items } from "../../components/Customer/ItemList/Items"
+import { ItemList } from "../../components/Customer/ItemList/ItemList"
 import './Customer.css'
 import Header from '../../UI/Header/Header'
 
 class Customer extends React.Component {
     render() {
-        const items = Items()
+        const items = ItemList()
         return (
             <div className='container--customer'>
                 <div className='content'>
