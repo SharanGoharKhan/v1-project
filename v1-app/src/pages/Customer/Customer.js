@@ -1,18 +1,15 @@
 import React from "react"
-import "./styles.css"
-
-import {Items} from "./items"
-
+import { Items } from "./Items"
+import './Customer.css'
+import Header from '../../UI/Header/Header'
 
 class Customer extends React.Component {
     render() {
-        const items=Items()
+        const items = Items()
         return (
             <div className='container--customer'>
                 <div className='content'>
-                    <header className="header--customer">
-                        <h1>Customer Interface</h1>
-                    </header>
+                    <Header title='Customer Interface' />
                     <main>
                         {items}
                     </main>

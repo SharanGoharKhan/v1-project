@@ -2,19 +2,14 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
-import Customer from './components/Customer';
-import Admin from './components/Admin';
-import Home from './components/Home';
+
+import Customer from './pages/Customer/Customer';
+import Admin from './pages/Admin/Admin';
+import Home from './pages/Home/Home';
 import './App.css';
 
-import itemReducer from './store/reducers/item'
-const initialState = {
-  selectedRepositoryIds: [],
-};
-const store = createStore(itemReducer, initialState);
+
 
 
 const client = new ApolloClient({
@@ -36,11 +31,9 @@ class App extends Component {
     return (
 
       <ApolloProvider client={client}>
-        <Provider store={store}>
           <div className="full-container">
             {routes}
           </div>
-        </Provider>
       </ApolloProvider>
     );
   }
